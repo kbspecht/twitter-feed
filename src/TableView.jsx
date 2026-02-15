@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { NewTweetModal } from './NewTweetModal'
+import { DeleteTweetModal } from './DeleteTweetModal'
+import { EditTweetModal } from './EditTweetModal'
 
 function TableView(props){
     const [newTweetForm, setNewTweetForm] = useState(false);
@@ -16,12 +19,15 @@ function TableView(props){
                     <p>Topic: {tweet.topic}</p>
                     <p>Followers: {tweet.number_followers} | Following: {tweet.number_following}</p>
                     <div>
-                        <button>Delete Tweet</button>
-                        <button>Edit Tweet</button>
+                        <button onClick={() => setDeleteTweetForm(true)}>Delete Tweet</button>
+                        <button onClick={() => setEditTweetForm(true)}>Edit Tweet</button>
                     </div>
+                    <DeleteTweetModal tweet={tweet} deleteTweetForm={deleteTweetForm} setDeleteTweetForm={setDeleteTweetForm} />
+                    <EditTweetModal tweet={tweet} editTweetForm={editTweetForm} setEditTweetForm={setEditTweetForm} />
                 </li>
                 ))}
             </ul>
+            <NewTweetModal newTweetForm={newTweetForm} setNewTweetForm={setNewTweetForm} />
         </div>
     )
 }
