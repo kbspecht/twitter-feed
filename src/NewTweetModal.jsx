@@ -36,6 +36,7 @@ function NewTweetModal(props) {
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
                     bgcolor: 'white',
+                    color: 'black',
                     padding: 3,
                     borderRadius: 1,
                     boxShadow: 24

@@ -95,7 +95,7 @@ function TableView(props){
                     const originalIndex = props.feed.indexOf(tweet);
                     return (
                         <li key={originalIndex} className="tweet">
-                            <p><strong>{tweet.source}</strong> ({tweet.datetime.toISOString()}):</p>
+                            <p><strong>{tweet.source}</strong> ({tweet.datetime.toISOString().slice(0,16)}):</p>
                             <p>{tweet.content}</p>
                             <p>Topic: {tweet.topic}</p>
                             <p>Followers: {tweet.number_followers} | Following: {tweet.number_following}</p>
